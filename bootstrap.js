@@ -10,7 +10,7 @@ const path = require('path');
 const glob = require('glob');
 const _ = require('lodash');
 
-module.exports = function(app){
+module.exports = app => {
 
     const routers = glob.sync(__dirname + '/src/app/routers/*');
     const _views = glob.sync(__dirname + '/src/app/views/**/*');

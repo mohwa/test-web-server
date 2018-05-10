@@ -13,7 +13,6 @@ const path = require('path');
 
 const bodyParser = require('body-parser');
 
-const config = require('./config');
 const express = require('express');
 
 const app = express();
@@ -21,6 +20,9 @@ const app = express();
 const _console = require('./src/app/lib/console');
 
 const logger = require('morgan');
+
+const host = 'localhost';
+const port = 3000;
 
 // 로그 모듈을 app 과 연결한다.
 app.use(logger('dev'));
@@ -45,13 +47,13 @@ app.use((req, res, next) => {
 // server bootstrap
 require('./bootstrap')(app);
 
-app.listen(config.port, config.ip, (err) => {
+app.listen(port, host, (err) => {
 
   if (err) process.exit(1);
 
   _console.log('Start Web Server!!');
 
-  _console.log(`ip:${config.ip}`);
-  _console.log(`port:${config.port}`);
+  _console.log(`host:${host}`);
+  _console.log(`port:${port}`);
 
 });
